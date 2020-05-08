@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Month;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
 public class DateTime {
@@ -32,5 +33,15 @@ public class DateTime {
 
         System.out.println("LocalDate-"+ld);
         System.out.println("LocalTime-"+lt);
+
+        //change datetime format
+        System.out.println(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE));
+        System.out.println(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+        //custom format
+        DateTimeFormatter formatter=DateTimeFormatter.ofPattern("MM/dd/yyyy 'at' hh:mm a");
+        DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+
+        System.out.println("Custom format -"+LocalDateTime.now().format(formatter));
+        System.out.println(LocalDateTime.now().format(formatter2));
     }
 }
